@@ -41,7 +41,8 @@
       "src"
     ],
     "modulePathIgnorePatterns": [
-      "<rootDir>/json/"
+      "<rootDir>/json/",
+      "<rootDir>/__tests__/helpers"
     ]
   },
   "keywords": [
