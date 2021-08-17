@@ -2,7 +2,7 @@
   "name": "@epubknowledge/entityverter",
   "introName": "Entityverter",
   "version": "1.0.0",
-  "description": "A NPM package that converts an ePub's entities from name and rendered to their respected numerical value. If a bad entity is found it will be deleted.",
+  "description": "A NPM package that converts a file's entities from name and rendered to their respected numerical value. If a bad entity is found it will be deleted.",
   "main": "bin/index.js",
   "bin": {
     "entityverter": "bin/index.js",
@@ -41,7 +41,8 @@
       "src"
     ],
     "modulePathIgnorePatterns": [
-      "<rootDir>/json/",
+      "<rootDir>/json",
+      "<rootDir>/__tests__/files",
       "<rootDir>/__tests__/helpers"
     ]
   },
