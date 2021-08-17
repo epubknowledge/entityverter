@@ -2,7 +2,7 @@
   "name": "@epubknowledge/entityverter",
   "introName": "Entityverter",
   "version": "1.0.0",
-  "description": "Converts name entity to it's numerical value and removes bad entities",
+  "description": "A NPM package that converts an ePub's entities from name and rendered to their respected numerical value. If a bad entity is found it will be deleted.",
   "main": "bin/index.js",
   "bin": {
     "entityverter": "bin/index.js",
@@ -14,7 +14,8 @@
   "files": [
     "bin/",
     "common/",
-    "src/"
+    "src/",
+    "json/"
   ],
   "engines": {
     "node": ">=14.0"
@@ -27,7 +28,6 @@
   "scripts": {
     "link": "npm link",
     "unlink": "npm unlink",
-    "dev": "export NODE_ENV=development",
     "lint": "eslint",
     "test": "jest",
     "coverage": "jest --coverage"
