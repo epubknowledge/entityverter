@@ -1,14 +1,48 @@
 {
   "name": "@epubknowledge/entityverter",
+  "introName": "Entityverter",
   "version": "1.0.0",
   "description": "Converts name entity to it's numerical value and removes bad entities",
   "main": "bin/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "bin": {
+    "entityverter": "bin/index.js",
+    "evcli": "bin/cli.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/epubknowledge/entityverter.git"
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "files": [
+    "bin/",
+    "common/",
+    "src/"
+  ],
+  "engines": {
+    "node": ">=14.0"
+  },
+  "os": [
+    "darwin",
+    "linux",
+    "!win32"
+  ],
+  "scripts": {
+    "link": "npm link",
+    "unlink": "npm unlink",
+    "dev": "export NODE_ENV=development",
+    "lint": "eslint",
+    "test": "jest",
+    "coverage": "jest --coverage"
+  },
+  "jest": {
+    "verbose": true,
+    "roots": [
+      "__tests__",
+      "bin",
+      "common",
+      "src"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/json/"
+    ]
   },
   "keywords": [
     "epub",
@@ -16,9 +50,26 @@
     "CLI"
   ],
   "author": "codingChewie",
-  "license": "ISC",
+  "license": "see license in LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/epubknowledge/entityverter.git"
+  },
   "bugs": {
     "url": "https://github.com/epubknowledge/entityverter/issues"
   },
-  "homepage": "https://github.com/epubknowledge/entityverter#readme"
+  "homepage": "https://github.com/epubknowledge/entityverter#readme",
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "clear": "^0.1.0",
+    "commander": "^7.2.0",
+    "figlet": "^1.5.0",
+    "fs-extra": "^10.0.0",
+    "tmp": "^0.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.28.0",
+    "jest": "^27.0.6",
+    "prettier": "^2.3.1"
+  }
 }

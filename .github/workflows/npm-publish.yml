@@ -1,0 +1,22 @@
+name: NPM Publish # NPM Publish is the name for this action
+on: # This action will trigger on every release get created
+  release:
+    types: [published]
+jobs: # Job will run on a ubuntu instance
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2 # Checkout the code
+      - uses: actions/setup-node@v1 # Setup node with version 12.x and NPM registry url
+        with:
+          node-version: '14.x'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm install # Run NPM install to install project packages
+      - run: npm ci --ignore-scripts
+      - run: npm run build --if-present # yarn build to build the project
+      - run: npm publish --access restricted # publish the files to NPM
+        env: # for publishing, npm need authorization. We add the NPM token to the environment which will take care of authorization to publish to the package
+          NODE_AUTH_TOKEN: ${{secrets.NPM_ACTION_TOKEN}} # https://github.com/org/repo/settings/secrets/actions
