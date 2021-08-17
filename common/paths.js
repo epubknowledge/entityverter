@@ -14,4 +14,5 @@ module.exports = {
       process.exit(1)
     }
   },
+  parentDir: filename => path.dirname(filename),
 }
