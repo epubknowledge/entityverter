@@ -20,7 +20,7 @@ yarn add @epubknowledge/entityverter
 const entityverter = require('@epubknowledge/entityverter)
 ```
 
-Package takes three inputs:
+Package takes three parameters:
 
 ```bash
 entityverter(input, output, result)
