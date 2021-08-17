@@ -30,7 +30,7 @@ module.exports = {
   },
   // Writes a test file to desktop to review
   testWrite: (data, ext) => {
-    const filePath = `${os.homedir()}/desktop/results.${Math.floor(+new Date() / 1000)}.${ext}`
+    const filePath = `${os.homedir()}/desktop/results.${Math.floor(+new Date() / 1000)}${ext}`
     try {
       fs.outputFileSync(filePath, data.toString())
       console.log(chalk.green('Wrote test to:'), chalk.white(filePath))
