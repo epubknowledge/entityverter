@@ -13,8 +13,9 @@ module.exports = {
     return fs.existsSync(filename) === true ? true : false
   },
   // Writes data to a specified file path
-  fileWriter: (filePath, data) =>
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2, 'utf-8')),
+  fileWriter: (filePath, data) => fs.writeFileSync(filePath, data),
+  // Writes JSON to a file
+  jsonWriter: (filePath, data) => fs.writeJsonSync(filePath, data),
   // Copies a file to a destination
   fileCopy: (file, dest) => {
     try {
