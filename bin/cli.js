@@ -15,7 +15,7 @@ const cli = () => {
     .description(description)
     .option('-i, --input [file]', 'File to read in to be converted', false)
     .option('-r, --result [boolean]', 'Directory to be piped in', false)
-    .option('-o, --output [folder]', 'Directory file should be written to', false)
+    .option('-o, --output [file]', 'File to write to if not overwriting', false)
     .action(async () => {
       const { input, result, output, cli = true } = program._optionValues
       await main(input, result, output, cli)
