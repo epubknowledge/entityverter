@@ -1,0 +1,24 @@
+{
+  "name": "@epubknowledge/entityverter",
+  "version": "1.0.0",
+  "description": "Converts name entity to it's numerical value and removes bad entities",
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/epubknowledge/entityverter.git"
+  },
+  "keywords": [
+    "epub",
+    "entity",
+    "CLI"
+  ],
+  "author": "codingChewie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/epubknowledge/entityverter/issues"
+  },
+  "homepage": "https://github.com/epubknowledge/entityverter#readme"
+}

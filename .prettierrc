@@ -1,0 +1,35 @@
+{
+  "singleQuote": true,
+  "jsx-quotes": [2, "prefer-single"],
+  "semi": false,
+  "bracketSpacing": true,
+  "arrowParens": "avoid",
+  "trailingComma": "all",
+  "printWidth": 100,
+  "object-curly-spacing": [2, "always"],
+  "spaced-comment": "off",
+  "no-console": "warn",
+  "consistent-return": "off",
+  "func-names": "off",
+  "object-shorthand": "off",
+  "no-process-exit": "off",
+  "no-param-reassign": "off",
+  "no-return-await": "off",
+  "no-underscore-dangle": "off",
+  "class-methods-use-this": "off",
+  "fix": false,
+  "endOfLine": "auto",
+  "prefer-destructuring": [
+    "error",
+    {
+      "object": true,
+      "array": true
+    }
+  ],
+  "no-unused-vars": [
+    "error",
+    {
+      "argsIgnorePattern": "req|res|next|val"
+    }
+  ]
+}
