@@ -37,4 +37,24 @@ module.exports = {
     })
     return obj
   },
+  entCalculate: obj => {
+    const status = obj.results
+    let resultObj = {}
+    Object.keys(obj.entities).map(entGroup => {
+      let replaced = obj.entities[entGroup].entities.filter(obj =>
+        Object.keys(obj).includes('count'),
+      )
+      if (replaced.length > 0) {
+        let totalCount = 0
+        replaced.map(item => (totalCount += item.count))
+        resultObj[entGroup] = {
+          totalCount,
+          replaced,
+        }
+      }
+    })
+    obj.results = { status, data: Object.keys(resultObj).length === 0 ? false : resultObj }
+    delete obj.entities
+    return obj
+  },
 }
