@@ -1,15 +1,49 @@
 #!/usr/bin/env node
 
+const fs = require('fs-extra') // https://www.npmjs.com/package/fs-extra
+const chalk = require('chalk') // https://www.npmjs.com/package/chalk
+
 const objectSetup = require('../common/objectSetup')
 const { remove } = require('../common/tmp')
 const resetMem = require('../common/resetMemory')
+const { readFile, fileWriter, jsonWriter } = require('../common/file')
+const { entSetup, entFormat, entCalculate } = require('../src/entity')
+const { introName } = require('../package.json')
 
-module.exports = async (i, o = false, cli = false) => {
-  const ebookObj = objectSetup(i, o) // Foundation object for package
-  ebookObj.cli = cli // Add CLI boolean
+module.exports = async (i = false, r = false, o = false, cli = false) => {
+  if (i === false) {
+    if (cli === true) {
+      console.log(chalk.red('Error:'), chalk.white(`File path not specified`))
+      process.exit(1)
+    } else {
+      return {
+        error: `File path not specified`,
+      }
+    }
+  }
 
-  console.log(ebookObj) // echo object
+  ebookObj = objectSetup(i, r, o, cli) // Foundation object for package
+  ebookObj.data = readFile(ebookObj.input)
 
+  ebookObj.entities = entSetup(ebookObj)
+  ebookObj = await entFormat(ebookObj)
+  ebookObj = await entCalculate(ebookObj)
+
+  if (ebookObj.cli === true) {
+    fileWriter(ebookObj.output, ebookObj.data)
+    try {
+      if (ebookObj.results.status === true && ebookObj.results.data !== false)
+        jsonWriter(`${ebookObj.file.parent}/entity-results.json`, ebookObj.results.data)
+      console.log(chalk.green('Completed'), chalk.white(introName))
+    } catch (e) {
+      console.log(e.message)
+    }
+  } else {
+    return {
+      data: ebookObj.data,
+      results: ebookObj.results,
+    }
+  }
   remove(ebookObj.tmp) // Remove tmp directory
   resetMem() // Reset variable in memory to remove conflict with Boilerplate
 }
