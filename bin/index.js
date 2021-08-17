@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-const fs = require('fs-extra') // https://www.npmjs.com/package/fs-extra
 const chalk = require('chalk') // https://www.npmjs.com/package/chalk
 
 const objectSetup = require('../common/objectSetup')
