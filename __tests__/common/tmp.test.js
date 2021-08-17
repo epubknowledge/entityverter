@@ -1,5 +1,5 @@
-const { create, remove } = require('../../templates/tmp')
-const ex = require('../../templates/exists')
+const { create, remove } = require('../../common/tmp')
+const ex = require('../../common/exists')
 
 const tmpObj = create()
 

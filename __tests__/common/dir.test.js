@@ -1,7 +1,7 @@
 const testObj = require('../helpers/testObj')
-const ex = require('../../templates/exists')
-const { dirCopy } = require('../../templates/dir')
-const { create, remove } = require('../../templates/tmp')
+const ex = require('../../common/exists')
+const { dirCopy } = require('../../common/dir')
+const { create, remove } = require('../../common/tmp')
 
 const tmpObj = create()
 const testSetup = testObj(tmpObj)

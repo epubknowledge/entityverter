@@ -1,7 +1,7 @@
 path = require('path')
 const { homedir } = require('os')
 
-const { desktop, doc, absolute } = require('./../../templates/paths')
+const { desktop, doc, absolute } = require('./../../common/paths')
 
 test('Build desktop path', () => expect(desktop()).toBe(path.join(homedir(), 'Desktop')))
 

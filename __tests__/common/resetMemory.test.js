@@ -1,4 +1,4 @@
-const rm = require('../../templates/resetMemory')
+const rm = require('../../common/resetMemory')
 
 test('Test reset memory', async () => {
   global.ebookObj = 'Alabama'
