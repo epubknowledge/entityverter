@@ -40,4 +40,13 @@ module.exports = {
   },
   // Read file
   readFile: filename => fs.readFileSync(filename, 'utf8'),
+  // Get details of the file
+  fileObj: filPath => {
+    return {
+      name: path.parse(filPath).name,
+      ext: path.extname(filPath),
+      fullName: path.basename(filPath),
+      parent: path.dirname(filPath),
+    }
+  },
 }
