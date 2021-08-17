@@ -20,7 +20,21 @@ module.exports = {
     }
   },
   entFormat: obj => {
-    console.log(obj.entities)
+    Object.keys(obj.entities).map(entGroup => {
+      const entObj = obj.entities[entGroup]
+      Object.keys(entObj.entities).map(entity => {
+        const countEnt = (
+          obj.data.match(new RegExp(String.raw`${entObj.entities[entity].name}`, 'g')) || []
+        ).length
+        if (countEnt > 0) {
+          entObj.entities[entity].count = countEnt
+          obj.data = obj.data.replace(
+            new RegExp(entObj.entities[entity].name, 'gm'),
+            entObj.entities[entity].value,
+          )
+        }
+      })
+    })
     return obj
   },
 }
