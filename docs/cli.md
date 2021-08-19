@@ -37,7 +37,7 @@ npm run unlink
 basic usage:
 
 ```bash
-evcli -e file.xhtml
+evcli -i file.xhtml
 ```
 
 If a file is not specified to the `-e` flag then the CLI will throw an error in the terminal.
