@@ -38,9 +38,10 @@ module.exports = async (i = false, r = false, o = false, cli = false) => {
       console.log(e.message)
     }
   } else {
+    if (ebookObj.results.status === false) return ebookObj.data
     return {
       data: ebookObj.data,
-      results: ebookObj.results,
+      results: ebookObj.results.data,
     }
   }
   remove(ebookObj.tmp) // Remove tmp directory
