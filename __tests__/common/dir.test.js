@@ -25,7 +25,7 @@ describe('Run module test', () => {
   })
 
   test('Empty directory with dirEmpty', async () => {
-    expect(fs.readdirSync(`${testSetup.tmp.dir}/copyTest`).length).toEqual(3)
+    expect(fs.readdirSync(`${testSetup.tmp.dir}/copyTest`).length).toBeGreaterThan(0)
     await dirEmpty(`${testSetup.tmp.dir}/copyTest`)
     expect(fs.readdirSync(`${testSetup.tmp.dir}/copyTest`).length).toEqual(0)
   })
