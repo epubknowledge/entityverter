@@ -13,7 +13,7 @@ module.exports = (i, r, o, cli) => {
     output,
     file,
     results,
-    tmp: create(true), // Building locally? Pass in: true
+    tmp: create(), // Building locally? Pass in: true
     cli,
   }
 }
