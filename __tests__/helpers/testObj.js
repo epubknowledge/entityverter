@@ -10,10 +10,13 @@ module.exports = tmpObj => {
       dir: tmpObj.hasOwnProperty('dir') === true ? tmpObj.dir : null,
       nuke: tmpObj.hasOwnProperty('nuke') === true ? tmpObj.nuke : null,
     },
-    data: `${fileDir}/data.json`,
-    testDir: {
-      goodDir: `${fileDir}/good`,
-      missDir: `${fileDir}/missing`,
+    tests: {
+      dir: fileDir,
+      file: {
+        badEnt: `${fileDir}/bad.txt`,
+        htmlEnt: `${fileDir}/html.txt`,
+        symbolEnt: `${fileDir}/symbol.txt`,
+      },
     },
   }
   return obj
