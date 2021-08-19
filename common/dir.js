@@ -12,4 +12,5 @@ module.exports = {
     }
   },
   dirEmpty: dir => fs.emptyDirSync(dir), // Empties a directory
+  isDirEmpty: dir => (fs.readdirSync(dir).length === 0 ? true : false), // Boolean to check if a directory is empty
 }
