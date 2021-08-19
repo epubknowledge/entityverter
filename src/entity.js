@@ -1,5 +1,6 @@
 path = require('path')
 const fs = require('fs-extra')
+const chalk = require('chalk')
 
 const entArray = ['bad', 'html', 'symbol']
 let entObj = {}
@@ -16,7 +17,8 @@ module.exports = {
       })
       return entObj
     } catch (e) {
-      console.log(e.message)
+      console.log(chalk.red('Error:'), chalk.white(`Reading entity files`))
+      process.exit(1)
     }
   },
   entFormat: obj => {
