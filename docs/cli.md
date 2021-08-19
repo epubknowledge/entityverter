@@ -34,10 +34,10 @@ npm run unlink
 
 ## Usage
 
-basic usageL
+basic usage:
 
 ```bash
-evcli -e file.tx
+evcli -e file.xhtml
 ```
 
 If a file is not specified to the `-e` flag then the CLI will throw an error in the terminal.
