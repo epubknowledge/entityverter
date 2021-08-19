@@ -14,5 +14,6 @@ module.exports = {
       process.exit(1)
     }
   },
+  // Get the parent directory of a file
   parentDir: filename => path.dirname(filename),
 }
