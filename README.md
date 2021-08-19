@@ -1,6 +1,6 @@
 # Entityverter
 
-A NPM package that converts an ePub's entities from name and rendered to their respected numerical value. If a bad entity is found it will be deleted.
+A NPM package that converts an file's entities from name and rendered to their respected numerical value. If a bad entity is found it will be deleted.
 
 ## Installation
 
