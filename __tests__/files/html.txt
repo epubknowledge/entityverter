@@ -1,5 +1,1 @@
-&amp;
-&gt;
-&lt;
-&quot;
-&acute;
+&amp;&gt;&lt;&quot;&acute;
