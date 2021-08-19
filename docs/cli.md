@@ -59,6 +59,12 @@ This is the file that should be passed into the CLI. If a file isn't detected it
 - `--input`: verbose
 - `-i`: shorthand
 
+Example usage:
+
+```bash
+evcli -i file.json
+```
+
 ### Results
 
 In case wanting to know what entities were replaced this takes a `result` flag. By default this is set to `false` but this has two usable flags:
@@ -76,7 +82,7 @@ Will be written to the parent directory specified in `output` with a file named 
 
 ### Output
 
-By default this is set to `false` and overwrites the file specified in `input`. If the destination needs to be somewhere different the it should be passed in with either the two flags:
+By default this is set to `false` and overwrites the file specified in `input`. If the destination needs to be somewhere different the `-o` flag should be used. Two flags options can be used:
 
 - `--output`: verbose
 - `-o`: shorthand
