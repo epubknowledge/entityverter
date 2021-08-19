@@ -17,7 +17,7 @@ yarn add @epubknowledge/entityverter
 After downloaded install the dependencies:
 
 ```bash
-npm i
+cd entityverter && npm i
 ```
 
 Link:
