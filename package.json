@@ -30,7 +30,8 @@
     "unlink": "npm unlink",
     "lint": "eslint",
     "test": "jest",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "testfile": "npm test -- /path/to/file.js"
   },
   "jest": {
     "verbose": true,
