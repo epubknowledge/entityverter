@@ -10,19 +10,17 @@ const { entSetup, entFormat, entCalculate } = require('../src/entity')
 const { introName } = require('../package.json')
 
 module.exports = async (i = false, r = false, o = false, cli = false) => {
-  if (i === false) {
-    if (cli === true) {
+  if (cli === true) {
+    if (i === false) {
       console.log(chalk.red('Error:'), chalk.white(`File path not specified`))
       process.exit(1)
-    } else {
-      return {
-        error: `File path not specified`,
-      }
     }
+    ebookObj = objectSetup(i, r, o, cli)
+    ebookObj.data = readFile(ebookObj.input)
+  } else {
+    if (i === false) return { error: `data not passed` }
+    ebookObj = objectSetup(i, r, o, cli)
   }
-
-  ebookObj = objectSetup(i, r, o, cli) // Foundation object for package
-  ebookObj.data = readFile(ebookObj.input)
 
   ebookObj.entities = entSetup(ebookObj)
   ebookObj = await entFormat(ebookObj)
@@ -37,7 +35,6 @@ module.exports = async (i = false, r = false, o = false, cli = false) => {
       }
       jsonWriter(`${ebookObj.file.parent}/${ebookObj.file.name}.entity-results.json`, resObj)
     }
-
     ebookObj.results.data === false
       ? console.log(
           chalk.green('Completed'),
@@ -51,6 +48,7 @@ module.exports = async (i = false, r = false, o = false, cli = false) => {
           chalk.white('on file'),
           chalk.green(ebookObj.file.fullName),
         )
+    remove(ebookObj.tmp) // Remove tmp directory
   } else {
     if (ebookObj.results.status === false) return ebookObj.data
     return {
@@ -61,6 +59,6 @@ module.exports = async (i = false, r = false, o = false, cli = false) => {
       },
     }
   }
-  remove(ebookObj.tmp) // Remove tmp directory
+
   resetMem() // Reset variable in memory to remove conflict with Boilerplate
 }

@@ -28,6 +28,8 @@
   "scripts": {
     "link": "npm link",
     "unlink": "npm unlink",
+    "dev": "NODE_ENV=development node run.js",
+    "prod": "NODE_ENV=production node run.js",
     "lint": "eslint",
     "test": "jest",
     "coverage": "jest --coverage",
