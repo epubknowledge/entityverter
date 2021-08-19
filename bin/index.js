@@ -30,13 +30,27 @@ module.exports = async (i = false, r = false, o = false, cli = false) => {
 
   if (ebookObj.cli === true) {
     fileWriter(ebookObj.output, ebookObj.data)
-    try {
-      if (ebookObj.results.status === true && ebookObj.results.data !== false)
-        jsonWriter(`${ebookObj.file.parent}/entity-results.json`, ebookObj.results.data)
-      console.log(chalk.green('Completed'), chalk.white(introName))
-    } catch (e) {
-      console.log(e.message)
+    if (ebookObj.results.status === true && ebookObj.results.data !== false) {
+      const resObj = {
+        file: ebookObj.file.fullName,
+        results: ebookObj.results.data,
+      }
+      jsonWriter(`${ebookObj.file.parent}/${ebookObj.file.name}.entity-results.json`, resObj)
     }
+
+    ebookObj.results.data === false
+      ? console.log(
+          chalk.green('Completed'),
+          chalk.blue(introName),
+          chalk.white(`| No entity issues found in file:`),
+          chalk.green(ebookObj.file.fullName),
+        )
+      : console.log(
+          chalk.green('Completed'),
+          chalk.blue(introName),
+          chalk.white('on file'),
+          chalk.green(ebookObj.file.fullName),
+        )
   } else {
     if (ebookObj.results.status === false) return ebookObj.data
     return {
