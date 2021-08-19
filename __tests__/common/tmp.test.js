@@ -13,7 +13,7 @@ test('Remove files in tmp', async () => {
   expect(ex(tmpObj)).toEqual(false)
 })
 
-const devTmp = create(true)
+const devTmp = create()
 
 test('Create developer tmp', async () => {
   await expect(devTmp).toHaveProperty('dir')
