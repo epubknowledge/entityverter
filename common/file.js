@@ -8,9 +8,13 @@ module.exports = {
   fileCleaner: arg => (Array.isArray(arg) === true ? arg.map(i => fs.remove(i)) : fs.remove(arg)),
   // Checks if a file exists and returns a boolean
   fileExists: filename => {
-    const isFile = fs.lstatSync(filename).isFile()
-    if (isFile === false) return false
-    return fs.existsSync(filename) === true ? true : false
+    try {
+      const isFile = fs.lstatSync(filename).isFile()
+      if (isFile === false) return false
+      return fs.existsSync(filename) === true ? true : false
+    } catch {
+      return false
+    }
   },
   // Writes data to a specified file path
   fileWriter: (filePath, data) => fs.writeFileSync(filePath, data),
