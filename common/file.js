@@ -4,8 +4,8 @@ const fs = require('fs-extra')
 const chalk = require('chalk')
 
 module.exports = {
-  // Delete an array of files
-  fileCleaner: array => array.map(i => fs.remove(i)),
+  // Delete an array of files or just a single file
+  fileCleaner: arg => (Array.isArray(arg) === true ? arg.map(i => fs.remove(i)) : fs.remove(arg)),
   // Checks if a file exists and returns a boolean
   fileExists: filename => {
     const isFile = fs.lstatSync(filename).isFile()
