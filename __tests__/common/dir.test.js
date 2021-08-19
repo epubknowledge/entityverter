@@ -1,6 +1,6 @@
 const testObj = require('../helpers/testObj')
 const ex = require('../../common/exists')
-const { dirCopy } = require('../../common/dir')
+const { dirCopy, dirEmpty } = require('../../common/dir')
 const { create, remove } = require('../../common/tmp')
 
 const tmpObj = create()
@@ -11,7 +11,7 @@ describe('Run module test', () => {
   test('Create timestamp for output dir', async () => await expect(typeof timestamp).toBe('number'))
 
   test('Copy files with the dirCopy module', async () => {
-    await dirCopy(testSetup.testDir.goodDir, `${testSetup.tmp.dir}/copyTest`)
+    await dirCopy(testSetup.tests.dir, `${testSetup.tmp.dir}/copyTest`)
     expect(ex(`${testSetup.tmp.dir}/copyTest`)).toBe(true)
   })
 
@@ -23,6 +23,12 @@ describe('Run module test', () => {
       mock.mockRestore()
     } catch {}
   })
+
+  test('Empty directory with dirEmpty', async () => {
+    expect(fs.readdirSync(`${testSetup.tmp.dir}/copyTest`).length).toEqual(3)
+    await dirEmpty(`${testSetup.tmp.dir}/copyTest`)
+    expect(fs.readdirSync(`${testSetup.tmp.dir}/copyTest`).length).toEqual(0)
+  })
 })
 
 test('Remove files in tmp', async () => {
@@ -31,5 +37,3 @@ test('Remove files in tmp', async () => {
 })
 
 afterAll(() => remove(tmpObj))
-
-// console.log()
