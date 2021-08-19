@@ -41,7 +41,10 @@ module.exports = async (i = false, r = false, o = false, cli = false) => {
     if (ebookObj.results.status === false) return ebookObj.data
     return {
       data: ebookObj.data,
-      results: ebookObj.results.data,
+      results: {
+        totalCount: ebookObj.results.data.symbol.totalCount,
+        replaced: ebookObj.results.data.symbol.replaced,
+      },
     }
   }
   remove(ebookObj.tmp) // Remove tmp directory
