@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const program = require('commander')
+const chalk = require('chalk')
 
 const { name, version, description } = require('../package.json')
 const intro = require('./intro')
@@ -18,6 +19,9 @@ const cli = () => {
     .option('-o, --output [file]', 'File to write to if not overwriting', false)
     .action(async () => {
       const { input, result, output, cli = true } = program._optionValues
+      if (input === false) {
+        console.log(chalk.red('Error:'), chalk.white(`File not specified.\n`))
+      }
       await main(input, result, output, cli)
     })
 

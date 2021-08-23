@@ -11,10 +11,6 @@ const { introName } = require('../package.json')
 
 module.exports = async (i = false, r = false, o = false, cli = false) => {
   if (cli === true) {
-    if (i === false) {
-      console.log(chalk.red('Error:'), chalk.white(`File path not specified`))
-      process.exit(1)
-    }
     ebookObj = objectSetup(i, r, o, cli)
     ebookObj.data = readFile(ebookObj.input)
   } else {
