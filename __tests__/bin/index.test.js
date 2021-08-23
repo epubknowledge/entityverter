@@ -8,7 +8,7 @@ const { dirCopy, dirEmpty, isDirEmpty } = require('../../common/dir')
 const exists = require('../../common/exists')
 const { readFile, fileExists, fileCleaner } = require('../../common/file')
 
-const tmpObj = create()
+const tmpObj = create(true)
 const testSetup = testObj(tmpObj)
 const tmpFiles = path.join(process.cwd(), '__tests__', 'files')
 const fileArray = async () => new Promise(async res => res(await fs.promises.readdir(tmpFiles)))
@@ -129,5 +129,3 @@ const resWriteTrue = async (file, results, expected) => {
   await fileCleaner(resFile)
   await expect(fileExists(resFile)).toEqual(false)
 }
-
-// console.log()
