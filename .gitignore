@@ -44,3 +44,4 @@ _site
 /_orig
 /_final
 test.xhtml
+/*.xhtml
