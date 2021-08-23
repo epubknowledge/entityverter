@@ -21,6 +21,7 @@ const cli = () => {
       const { input, result, output, cli = true } = program._optionValues
       if (input === false) {
         console.log(chalk.red('Error:'), chalk.white(`File not specified.\n`))
+        program.help()
       }
       await main(input, result, output, cli)
     })
