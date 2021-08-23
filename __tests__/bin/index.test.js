@@ -21,7 +21,7 @@ describe('Run module', () => {
   })
 
   test('Run entityverter with CLI false without any params', async () =>
-    expect(await ev()).toEqual({ error: 'File path not specified' }))
+    expect(await ev()).toEqual({ error: 'data not passed' }))
 
   test('Run entityverter with CLI true without any params', async () => {
     try {
@@ -35,7 +35,7 @@ describe('Run module', () => {
   test('Run entityverter with results false', async () => {
     const files = await fileArray()
     files.map(async file => {
-      const results = await ev(path.join(testSetup.tmp.dir, file))
+      const results = await ev(readFile(path.join(testSetup.tmp.dir, file)))
       switch (file) {
         case 'bad.txt':
           expect(results).toBe('')
@@ -53,8 +53,7 @@ describe('Run module', () => {
   test('Run entityverter with results true', async () => {
     const files = await fileArray()
     files.map(async file => {
-      const entity = await ev(path.join(testSetup.tmp.dir, file), true)
-      console.log(entity.results)
+      const entity = await ev(readFile(path.join(testSetup.tmp.dir, file)), true)
       switch (file) {
         case 'bad.txt':
           expect(entity.data).toBe('')
@@ -100,24 +99,24 @@ describe('Run module', () => {
     await dirCopy(tmpFiles, `${testSetup.tmp.dir}`)
     expect(isDirEmpty(testSetup.tmp.dir)).toBe(false)
   })
-})
 
-test('Run entityverter with results & CLI true', async () => {
-  const files = await fileArray()
-  files.map(async file => {
-    await ev(path.join(testSetup.tmp.dir, file), true, false, true)
-    const results = await readFile(path.join(testSetup.tmp.dir, file))
-    switch (file) {
-      case 'bad.txt':
-        resWriteTrue(file, results, '')
-        break
-      case 'html.txt':
-        resWriteTrue(file, results, '&#38;&#62;&#60;&#34;&#180;')
-        break
-      case 'symbol.txt':
-        resWriteTrue(file, results, '&#169;&#8482;&#174;&#8226;')
-        break
-    }
+  test('Run entityverter with results & CLI true', async () => {
+    const files = await fileArray()
+    files.map(async file => {
+      await ev(path.join(testSetup.tmp.dir, file), true, false, true)
+      const results = await readFile(path.join(testSetup.tmp.dir, file))
+      switch (file) {
+        case 'bad.txt':
+          resWriteTrue(file, results, '')
+          break
+        case 'html.txt':
+          resWriteTrue(file, results, '&#38;&#62;&#60;&#34;&#180;')
+          break
+        case 'symbol.txt':
+          resWriteTrue(file, results, '&#169;&#8482;&#174;&#8226;')
+          break
+      }
+    })
   })
 })
 
