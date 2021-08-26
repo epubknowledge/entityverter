@@ -43,7 +43,6 @@
     ],
     "modulePathIgnorePatterns": [
       "<rootDir>/json",
-      "<rootDir>/run.js",
       "<rootDir>/__tests__/files",
       "<rootDir>/__tests__/helpers"
     ]
