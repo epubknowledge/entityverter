@@ -14,21 +14,20 @@ module.exports = async (data = false, results = false) => {
     ebookObj = await entFormat(ebookObj)
     ebookObj = await entCalculate(ebookObj)
 
-    if (ebookObj.results.status === false) return ebookObj.data
-    if (ebookObj.results.status === true && ebookObj.results.data !== false) {
+    if (ebookObj.results.status === true) {
+      const results =
+        ebookObj.results.data === false
+          ? { status: true, data: false }
+          : {
+              totalCount: ebookObj.results.data.symbol.totalCount,
+              replaced: ebookObj.results.data.symbol.replaced,
+            }
       return {
         content: ebookObj.data,
-        results: {
-          totalCount: ebookObj.results.data.symbol.totalCount,
-          replaced: ebookObj.results.data.symbol.replaced,
-        },
-      }
-    } else {
-      return {
-        content: ebookObj.data,
-        results: false,
+        results,
       }
     }
+    return ebookObj.data
   } catch (e) {
     return { error: e.message }
   }
