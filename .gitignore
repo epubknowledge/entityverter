@@ -43,5 +43,5 @@ _site
 *.epub
 /_orig
 /_final
-test.xhtml
 /*.xhtml
+/*.entity-results.json
