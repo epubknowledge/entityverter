@@ -42,7 +42,7 @@ const cli = () => {
             chalk.green(ebookObj.file.fullName),
           )
         } else {
-          if (ebookObj.data.results === false) {
+          if (ebookObj.data.results.data === false) {
             console.log(
               chalk.green('Completed'),
               chalk.blue(introName),
