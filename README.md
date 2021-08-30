@@ -30,7 +30,7 @@ In the terminal:
 evcli -i file.xhtml
 ```
 
-If using this as a CLI then visit the [CLI documentation](./docs/cli.md).
+If using this as a CLI and wanting advanced documentation it can be found at **[CLI documentation](./docs/cli.md)**.
 
 ## Package
 
@@ -43,4 +43,4 @@ This can take two arguments:
 const entityverter(data, results)
 ```
 
-If using this as a package then visit the [Package documentation](./docs/package.md).
+If using this as a package and wanting advanced documentation it can be found a **[Package documentation](./docs/package.md)**.
