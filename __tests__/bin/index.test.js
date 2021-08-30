@@ -8,7 +8,7 @@ const { dirCopy, dirEmpty, isDirEmpty } = require('../../common/dir')
 const exists = require('../../common/exists')
 const { readFile } = require('../../common/file')
 
-const tmpObj = create(true)
+const tmpObj = create()
 const testSetup = testObj(tmpObj)
 const tmpFiles = path.join(process.cwd(), '__tests__', 'files')
 const fileArray = async () => new Promise(async res => res(await fs.promises.readdir(tmpFiles)))
