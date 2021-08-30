@@ -2,7 +2,7 @@
 
 A NPM package that converts a file's entities from name and rendered to their respected numerical value. If a bad entity is found it will be deleted.
 
-## Basic usage
+## Basic Usage
 
 NPM:
 
