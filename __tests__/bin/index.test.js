@@ -6,7 +6,7 @@ const testObj = require('../helpers/testObj')
 const ev = require('../../bin/index')
 const { dirCopy, dirEmpty, isDirEmpty } = require('../../common/dir')
 const exists = require('../../common/exists')
-const { readFile, fileExists, fileCleaner } = require('../../common/file')
+const { readFile } = require('../../common/file')
 
 const tmpObj = create(true)
 const testSetup = testObj(tmpObj)
