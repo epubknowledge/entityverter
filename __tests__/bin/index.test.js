@@ -13,6 +13,10 @@ const testSetup = testObj(tmpObj)
 const tmpFiles = path.join(process.cwd(), '__tests__', 'files')
 const fileArray = async () => new Promise(async res => res(await fs.promises.readdir(tmpFiles)))
 
+const hgResults = '&#38;&#62;&#60;&#34;&#180;'
+const symbolResults = '&#169;&#8482;&#174;&#8226;&#9744;'
+const resultCount = 5
+
 describe('Run module', () => {
   test('Copy test files to tmp directory', async () => {
     await dirCopy(tmpFiles, `${testSetup.tmp.dir}`)
@@ -33,10 +37,10 @@ describe('Run module', () => {
           break
         case 'html.txt':
         case 'good.txt':
-          expect(results).toBe('&#38;&#62;&#60;&#34;&#180;')
+          expect(results).toBe(hgResults)
           break
         case 'symbol.txt':
-          expect(results).toBe('&#169;&#8482;&#174;&#8226;&#9744;')
+          expect(results).toBe(symbolResults)
           break
       }
     })
@@ -49,15 +53,15 @@ describe('Run module', () => {
       switch (file) {
         case 'bad.txt':
           expect(entity.content).toBe('')
-          expect(entity.results.totalCount).toBe(4)
+          expect(entity.results.totalCount).toBe(resultCount)
           break
         case 'html.txt':
-          expect(entity.content).toBe('&#38;&#62;&#60;&#34;&#180;')
-          expect(entity.results.totalCount).toBe(4)
+          expect(entity.content).toBe(hgResults)
+          expect(entity.results.totalCount).toBe(resultCount)
           break
         case 'symbol.txt':
-          expect(entity.content).toBe('&#169;&#8482;&#174;&#8226;')
-          expect(entity.results.totalCount).toBe(4)
+          expect(entity.content).toBe(symbolResults)
+          expect(entity.results.totalCount).toBe(resultCount)
           break
       }
     })
