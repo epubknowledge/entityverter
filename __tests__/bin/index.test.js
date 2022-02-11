@@ -56,8 +56,8 @@ describe('Run module', () => {
           expect(entity.results.totalCount).toBe(4)
           break
         case 'symbol.txt':
-          expect(entity.content).toBe('&#169;&#8482;&#174;&#8226;&#9744;')
-          expect(entity.results.totalCount).toBe(5)
+          expect(entity.content).toBe('&#169;&#8482;&#174;&#8226;')
+          expect(entity.results.totalCount).toBe(4)
           break
       }
     })
