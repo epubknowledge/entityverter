@@ -36,7 +36,7 @@ describe('Run module', () => {
           expect(results).toBe('&#38;&#62;&#60;&#34;&#180;')
           break
         case 'symbol.txt':
-          expect(results).toBe('&#169;&#8482;&#174;&#8226;')
+          expect(results).toBe('&#169;&#8482;&#174;&#8226;&#9744;')
           break
       }
     })
@@ -56,8 +56,8 @@ describe('Run module', () => {
           expect(entity.results.totalCount).toBe(4)
           break
         case 'symbol.txt':
-          expect(entity.content).toBe('&#169;&#8482;&#174;&#8226;')
-          expect(entity.results.totalCount).toBe(4)
+          expect(entity.content).toBe('&#169;&#8482;&#174;&#8226;&#9744;')
+          expect(entity.results.totalCount).toBe(5)
           break
       }
     })
