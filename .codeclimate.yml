@@ -1,0 +1,6 @@
+exclude_paths:
+  - '**/__tests__/'
+exclude_patterns:
+  - '**/__tests__/'
+  - '**/test/'
+  - '**/tests/'
