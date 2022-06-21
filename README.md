@@ -1,3 +1,5 @@
+![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/epubknowledge/entityverter) ![Code Climate issues](https://img.shields.io/codeclimate/issues/epubknowledge/entityverter) ![Github code size](https://img.shields.io/github/languages/code-size/epubknowledge/entityverter) ![GitHub issues](https://img.shields.io/github/issues/epubknowledge/entityverter) ![GitHub last commit](https://img.shields.io/github/last-commit/epubknowledge/entityverter) [![GitHub forks](https://img.shields.io/github/forks/epubknowledge/entityverter)](https://github.com/epubknowledge/entityverter/network) [![GitHub stars](https://img.shields.io/github/stars/epubknowledge/entityverter)](https://github.com/epubknowledge/entityverter/stargazers) ![npm](https://img.shields.io/npm/v/@epubknowledge/entityverter)
+
 # Entityverter
 
 A NPM package that converts a file's entities from name and rendered to their respected numerical value. If a bad entity is found it will be deleted.
