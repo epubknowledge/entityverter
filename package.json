@@ -1,7 +1,7 @@
 {
   "name": "@epubknowledge/entityverter",
   "introName": "Entityverter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A NPM package that converts a file's entities from name and rendered to their respected numerical value. If a bad entity is found it will be deleted.",
   "main": "bin/index.js",
   "bin": {
@@ -30,8 +30,7 @@
     "unlink": "npm unlink",
     "lint": "eslint",
     "test": "jest",
-    "coverage": "jest --coverage",
-    "testfile": "npm test -- /path/to/file.js"
+    "coverage": "jest --coverage"
   },
   "jest": {
     "verbose": true,
